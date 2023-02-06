@@ -1,6 +1,6 @@
 -- RNGSEED: 1
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 with ssr as
  (select s_store_id,
         sum(sales_price) as sales,

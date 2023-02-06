@@ -1,6 +1,6 @@
 -- RNGSEED: 1
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select  count(*)
 from store_sales
     ,household_demographics

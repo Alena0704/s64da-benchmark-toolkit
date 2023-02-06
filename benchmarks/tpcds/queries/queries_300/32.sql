@@ -1,6 +1,6 @@
 -- RNGSEED: 1
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select  sum(cs_ext_discount_amt)  as "excess discount amount"
 from
    catalog_sales

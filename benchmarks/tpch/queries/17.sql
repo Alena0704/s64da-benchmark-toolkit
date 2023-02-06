@@ -1,6 +1,6 @@
 -- using 1512813808 as a seed to the RNG
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     sum(l_extendedprice) / 7.0 as avg_yearly
 from

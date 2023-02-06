@@ -1,5 +1,5 @@
 -- vim: set ft=sql:
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     c_last,
     c_id o_id,

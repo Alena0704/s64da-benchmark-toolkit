@@ -1,5 +1,5 @@
 -- vim: set ft=sql:
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     n_name,
     extract(year from o_entry_d) as l_year,

@@ -1,6 +1,6 @@
 -- RNGSEED: 1
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select  substr(r_reason_desc,1,20) as col1
        ,avg(ws_quantity) as avg1
        ,avg(wr_refunded_cash) as avg2

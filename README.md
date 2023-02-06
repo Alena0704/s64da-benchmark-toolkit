@@ -85,8 +85,8 @@ and ANALYZE.
 Start a benchmark:
 
     ./run_benchmark \
-        --dsn postgresql://postgres@localhost/<target-db> \
-        [--benchmark] <tpch|tpcds|ssb|htap> \
+        --dsn postgresql://postgres@localhost/postgres \
+        --benchmark tpcds <tpch|tpcds|ssb|htap> \
         <optional benchmark-specific arguments>
 
 This runs the benchmark with the default runtime restriction per query.

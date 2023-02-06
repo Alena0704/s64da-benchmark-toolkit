@@ -1,5 +1,5 @@
 -- vim: set ft=sql:
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     o_ol_cnt,
     count(*) as order_count

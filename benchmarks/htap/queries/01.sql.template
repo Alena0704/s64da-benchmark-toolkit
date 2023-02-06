@@ -1,5 +1,5 @@
 -- vim: set ft=sql:
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     ol_number,
     sum(ol_quantity) as sum_qty,

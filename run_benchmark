@@ -22,7 +22,7 @@ def check_requirements():
         logger.error('Your version of Python does not match the requirements.')
         sys.exit()
 
-    check_program_exists('psql')
+    check_program_exists('/home/alena/postgrespro18/tmp_install/bin/psql')
 
 
 def find_benchmarks():
@@ -130,7 +130,7 @@ if __name__ == '__main__':
         else:
             argv.append(item)
     if benchmark_param_found:
-        logger.warn('The parameter `--benchmark` is deprecated. Provide the name of the benchmark '
+        logger.warning('The parameter `--benchmark` is deprecated. Provide the name of the benchmark '
                     'you want to run as a positional argument after the `--dsn` parameter common '
                     'to all benchmarks.')
 

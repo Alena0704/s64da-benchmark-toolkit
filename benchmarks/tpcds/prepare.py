@@ -36,7 +36,7 @@ class PrepareBenchmark(PrepareBenchmarkFactory):
             100: 0.85,
             1000: 0.75,
         },
-        'psql': {
+        '/home/alena/postgrespro18/tmp_install/bin/psql': {
             10: 6.0,
             100: 3.5,
             1000: 3.0,
@@ -51,7 +51,7 @@ class PrepareBenchmark(PrepareBenchmarkFactory):
 
     def _stream_to_db(self, table):
         return (f"grep ^{table} | sed -r 's/^'{table}' (.*)/\\1/' | "
-                f"psql {self.args.dsn} -c \"COPY {table} FROM STDIN "
+                f"/home/alena/postgrespro18/tmp_install/bin/psql {self.args.dsn} -c \"COPY {table} FROM STDIN "
                 f"WITH (FORMAT CSV, DELIMITER '|')\"")
 
     def get_copy_cmds(self, data_dir, table):

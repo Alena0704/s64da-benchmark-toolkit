@@ -1,6 +1,6 @@
 -- RNGSEED: 1
 
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select avg(ss_quantity) as avg1
        ,avg(ss_ext_sales_price) as avg2
        ,avg(ss_ext_wholesale_cost) as avg3

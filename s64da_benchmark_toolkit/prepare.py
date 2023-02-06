@@ -76,10 +76,10 @@ class PrepareBenchmarkFactory:
 
 
     def psql_exec_file(self, filename):
-        return f'psql {self.args.dsn} -f {filename}'
+        return f'/home/alena/postgrespro18/tmp_install/bin/psql {self.args.dsn} -f {filename}'
 
     def psql_exec_cmd(self, sql):
-        return f'psql {self.args.dsn} -c "{sql}"'
+        return f'/home/alena/postgrespro18/tmp_install/bin/psql {self.args.dsn} -c "{sql}"'
 
     @staticmethod
     def check_ingest(output):
@@ -208,7 +208,6 @@ class PrepareBenchmarkFactory:
         print('Adding common')
         self.add_common()
 
-        print('Updating all columnstore indexes')
         self.update_all_columnstores()
 
         print('VACUUM-ANALYZE')
@@ -230,22 +229,22 @@ class PrepareBenchmarkFactory:
             with open(pre_schema_path, 'r') as pre_schema_file:
                 conn.cursor.execute(pre_schema_file.read())
 
-    
     def _load_schema(self, conn, applied_schema_path):
         print(f'Loading schema {applied_schema_path}')
         with open(applied_schema_path, 'r') as schema:
             schema_sql = schema.read()
+            print(schema_sql)
             conn.cursor.execute(schema_sql)
 
     def prepare_db(self):
         dsn_url = urlparse(self.args.dsn)
         dbname = dsn_url.path[1:]
 
-        with DBConn(f'{dsn_url.scheme}://{dsn_url.netloc}/postgres') as conn:
+        '''with DBConn(f'{dsn_url.scheme}://{dsn_url.netloc}/postgres') as conn:
             print(f'Deleting Database {dbname} if it already exists')
             conn.cursor.execute(f'DROP DATABASE IF EXISTS {dbname}')
             print(f'Creating Database {dbname}')
-            conn.cursor.execute(f"CREATE DATABASE {dbname} TEMPLATE template0 ENCODING 'UTF-8'")
+            conn.cursor.execute(f"CREATE DATABASE {dbname} TEMPLATE template0 ENCODING 'UTF-8'")'''
 
 
         applied_schema_path = os.path.join(s64_benchmark_toolkit_root_dir, 'applied_schema.sql')

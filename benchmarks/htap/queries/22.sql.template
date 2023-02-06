@@ -1,7 +1,7 @@
 -- vim: set ft=sql:
 -- FIXME: This query produces an empty result as there are
 -- no customers who never ordered.
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     c_nationkey,
     count(*) as numcust,

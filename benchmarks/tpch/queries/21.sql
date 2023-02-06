@@ -1,4 +1,4 @@
--- EXPLAIN (FORMAT JSON)
+--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)
 select
     s_name,
     count(*) as numwait

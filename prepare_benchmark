@@ -23,7 +23,7 @@ if __name__ == '__main__':
         logger.error('Your python version does not match the requirements.')
         sys.exit()
 
-    check_program_exists('psql')
+    check_program_exists('/home/alena/postgrespro18/tmp_install/bin/psql')
 
     args_to_parse = argparse.ArgumentParser(
         argument_default=argparse.SUPPRESS,
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     if args.benchmark == 'ssb':
         # Parameter --check-diskspace-of-directory not supported for ssb yet
         args.check_diskspace_of_directory = ''
-    
+
     if args.benchmark == 'tpcds':
             check_program_exists('recode')
 

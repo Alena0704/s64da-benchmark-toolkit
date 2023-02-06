@@ -108,7 +108,7 @@ class Correctness:
             truth_row = truth.iloc[index]
             result_row = result.iloc[index]
 
-            for column_name, truth_datum in truth_row.iteritems():
+            for column_name, truth_datum in truth_row.items():
                 result_datum = result_row[column_name]
 
                 if truth.dtypes[column_name] == 'float64':

@@ -47,8 +47,8 @@ class DB:
             try:
                 start = time.time()
 
-                if auto_explain:
-                    DB.auto_explain_on(conn)
+                # if auto_explain:
+                #    DB.auto_explain_on(conn)
 
                 cursor = conn.cursor
                 if use_server_side_cursors:
@@ -101,8 +101,7 @@ class DB:
             'auto_explain.log_min_duration': 0,
             'auto_explain.log_analyze': 'on',
             'auto_explain.log_verbose': 'on',
-            'auto_explain.log_buffers': 'off',
-            'auto_explain.log_format': 'json',
+            'auto_explain.log_buffers': 'on',
             'client_min_messages': 'LOG'
         }
 
@@ -115,7 +114,7 @@ class DB:
     def get_explain_output(connection, sql):
         try:
             with connection.cursor() as explain_plan_cursor:
-                explain_plan_cursor.execute(sql.replace('-- EXPLAIN (FORMAT JSON)', 'EXPLAIN (FORMAT JSON)'))
+                explain_plan_cursor.execute(sql.replace('--EXPLAIN (ANALYZE, BUFFERS, TIMING OFF)', 'EXPLAIN (ANALYZE, BUFFERS, TIMING OFF, FORMAT JSON)'))
                 return json.dumps(explain_plan_cursor.fetchone()[0], indent=4)
 
         except psycopg2.Error as e:

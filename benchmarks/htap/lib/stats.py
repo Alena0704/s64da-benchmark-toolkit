@@ -305,7 +305,7 @@ class Stats:
                 row_nr += 1
                 csv.write(f'{row_nr};{stream_id};{query_type}_latency;{fake_date};{fake_date};{latency};OK;OK\n')
                 row_nr += 1
- 
+
             # now all olap streams
             for stream_idx, stream in enumerate(self.data['olap']):
                 for query_id, stats in stream['queries'].items():
